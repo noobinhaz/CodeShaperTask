@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Like;
 use App\Enums\UserType;
 use App\Enums\PostStatus;
 use App\Jobs\PostPublishJob;
@@ -23,9 +24,8 @@ class PostController extends Controller
     {
         //
         $posts = Cache::remember('posts', 60, function(){
-            return Post::latest()->where('status', PostStatus::PUBLISHED)->get();
+            return Post::with(['likes'])->latest()->where('status', PostStatus::PUBLISHED)->get();
         });
-
         return view('welcome', ['posts' => $posts]);
     }
 
@@ -108,7 +108,12 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        return view('posts.show', ['post' => Post::where('id', $id)->first(), 'edit' => false]);
+        return view('posts.show', ['post' => Post::with(['likes'])->where('id', $id)->first(), 'edit' => false, 
+        'liked'=> Like::where(function($query)use($id){
+            if(auth()->check()){
+                $query->where('product_id', $id)->where('user_id', auth()->user()->id);
+            }
+        })->first()]);
     }
 
     /**

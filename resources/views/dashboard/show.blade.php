@@ -1,4 +1,4 @@
-<x-layout>
+<x-dashlayout>
     <div class="d-flex align-items-center min-vh-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -36,7 +36,7 @@
                                 </div>
                                 @endauth
                                 <div class="d-flex justify-content-center row">
-                                    <a href="{{url()->previous() }}" class="btn btn-info text-center">Return</a>
+                                    <a href="/dashboard/posts" class="btn btn-info text-center">Return</a>
                                 </div>
                             </div>
                         
@@ -47,7 +47,7 @@
                     <div class="card"> 
                         <div class="card-header">No Content</div>
                         <div class="card-body"><h2 class="text-warning">Maybe something went wrong!</h2></div>
-                        <div class="card-body"><a href="{{url()->previous()}}" class="btn btn-info">Go Back</a></div>
+                        <div class="card-body"><a href="/dashboard/posts" class="btn btn-info">Go Back</a></div>
                     </div>
                     @endif
                 </div>
@@ -55,4 +55,4 @@
         </div>
     </div>
 
-</x-layout>
+</x-dashlayout>

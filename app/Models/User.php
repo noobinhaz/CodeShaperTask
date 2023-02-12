@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Post;
+use App\Models\Like;
 use App\Models\Payment;
 
 class User extends Authenticatable
@@ -51,5 +52,9 @@ class User extends Authenticatable
 
     public function payments(){
         return $this->hasMany(Payment::class, 'created_by', 'id');
+    }
+
+    public function likes(){
+        return $this->hasMany(Like::class, 'user_id', 'id');
     }
 }

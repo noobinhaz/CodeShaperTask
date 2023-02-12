@@ -11,6 +11,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{$post->title}}</h5>
                     <p class="card-text">{{$post->description}}</p>
+                    <p class="card-bottom"><i class="fa fa-heart" aria-hidden="true"></i>{{$post->likes->count()}}</p>
                     <a href="/posts/{{$post->id}}" class="btn btn-primary">Read More</a>
                   </div>
                 </div>

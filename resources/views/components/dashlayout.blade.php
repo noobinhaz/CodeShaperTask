@@ -14,10 +14,10 @@
       <div class="row">
         <div class="col-md-2">
           <div class="list-group">
-            <a href="/dashboard" class="list-group-item list-group-item-action"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a>
-            <a href="/dashboard/posts" class="list-group-item list-group-item-action"><i class="fa fa-text-width" aria-hidden="true"></i>Posts</a>
-            <a href="/dashboard/plans" class="list-group-item list-group-item-action"><i class="fa fa-step-forward" aria-hidden="true"></i>Plans</a>
-            <a href="/" class="list-group-item list-group-item-action"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+            <a href="/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
+            <a href="/dashboard/posts" class="list-group-item list-group-item-action">Posts</a>
+            <a href="/dashboard/plans" class="list-group-item list-group-item-action">Plans</a>
+            <a href="/" class="list-group-item list-group-item-action">Home</a>
             <a href="/logout" method="POST" class="list-group-item list-group-item-action">
                 <form method="POST" class="nav-link text-danger" action="/logout">
                     @csrf

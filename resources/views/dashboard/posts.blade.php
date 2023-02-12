@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$post->title}}</h5>
                             <p class="card-text">{{$post->description}}</p>
-                            
+                            <span class="card-bottom"><i class="fa fa-heart" aria-hidden="true"></i>{{$post->likes->count()}}</span>
                                 @if($post->status == \App\Enums\PostStatus::PUBLISHED)
                                 <span class="bg-white d-flex justify-content-center"> <i class="fa fa-align-left text-success" aria-hidden="true"></i>Published</span>
                                 @else
@@ -33,7 +33,7 @@
                             <hr>
                             <div class="row d-flex justify-content-around">
 
-                                <a href="/posts/{{$post->id}}" class="btn btn-primary">View</a> 
+                                <a href="/dashboard/posts/{{$post->id}}" class="btn btn-primary">View</a>
                                 <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a> 
                                 <form action="/posts/{{$post->id}}" method="POST">
                                 <button class="btn btn-danger" type="submit">
